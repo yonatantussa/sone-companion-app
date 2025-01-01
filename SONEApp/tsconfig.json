@@ -17,9 +17,7 @@
     "**/*.js",
     "**/*.jsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    ".expo/types/**/*.js",
-    "epxo-env.d.js"
+    "expo-env.d.ts"
   ],
   "exclude": [
     "node_modules",
