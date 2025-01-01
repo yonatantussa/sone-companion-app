@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import React from 'react'; //for ts compiler to handle jsx for react-native
 
 export default function NotFoundScreen() {
   return (
