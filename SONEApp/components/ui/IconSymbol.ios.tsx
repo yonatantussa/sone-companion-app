@@ -13,7 +13,8 @@ export function IconSymbol({
   color: string;
   style?: StyleProp<ViewStyle>;
   weight?: SymbolWeight;
-}) {
+}) 
+{
   return (
     <SymbolView
       weight={weight}
