@@ -9,8 +9,6 @@ import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-type ColorScheme = 'light' | 'dark';
-
 export default function TabsLayout() {
   const colorScheme = useColorScheme();
   
@@ -41,7 +39,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: 'Home',
           tabBarIcon: ({ color }) => <IconSymbol size={35} name="house.fill" color={color} />,
