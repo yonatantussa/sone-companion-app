@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -10,6 +11,11 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+=======
+import React from "react";
+import { Stack } from "expo-router";
+import { AuthProvider } from '../providers/AuthProvider';
+>>>>>>> Stashed changes
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -28,6 +34,7 @@ export default function RootLayout() {
   }
 
   return (
+<<<<<<< Updated upstream
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -35,5 +42,13 @@ export default function RootLayout() {
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
+=======
+    <AuthProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="auth-screen" options={{ title: "Auth" }} />
+      </Stack>
+    </AuthProvider>
+>>>>>>> Stashed changes
   );
 }
