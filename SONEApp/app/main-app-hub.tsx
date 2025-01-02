@@ -1,23 +1,11 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { View, Text, Button } from "react-native";
 
-import HomeScreen from "@/app/(tabs)/home";
-import PatientsScreen from "@/app/(tabs)/patients";
-import SettingsScreen from "@/app/(tabs)/settings";
-
-const Stack = createStackNavigator();
-
-const MainAppHub = () => {
+export default function MainAppHub({ navigation }: { navigation: any }) {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="home">
-        <Stack.Screen name="home" component={HomeScreen} />
-        <Stack.Screen name="patients" component={PatientsScreen} />
-        <Stack.Screen name="settings" component={SettingsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Main App Hub</Text>
+      <Button title="Go to Home" onPress={() => navigation.navigate("(tabs)/home")} />
+    </View>
   );
-};
-
-export default MainAppHub;
+}
