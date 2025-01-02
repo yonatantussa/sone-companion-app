@@ -9,7 +9,11 @@ import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+type ColorScheme = 'light' | 'dark';
+
 export default function TabsLayout() {
+  const colorScheme = useColorScheme();
+  
   return (
     <Tabs
       tabBar={props=> <CustomTabBar {...props} />}
