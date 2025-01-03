@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { StyleSheet, Image, View } from 'react-native';
-import { Button, Text } from 'react-native-paper';
+import { Button, Text, TextInput } from 'react-native-paper';
 import { useAuth0 } from 'react-native-auth0';
 import { router } from 'expo-router';
 
 export default function AuthScreen() {
   const { authorize, clearSession, user, error, isLoading } = useAuth0();
   const [isAuthenticating, setIsAuthenticating] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const login = async () => {
     try {
       setIsAuthenticating(true);
       await authorize();
-      router.replace('/auth-screen');
+      router.replace('/home');
     } catch (e) {
       console.error(e);
     } finally {
@@ -24,14 +26,31 @@ export default function AuthScreen() {
     <View style={styles.container}>
       <View style={styles.logoContainer}>
         <Image
-          source={require('@/assets/images/react-logo.png')} // Add your logo image
+          source={require('@/assets/images/react-logo.png')}
           style={styles.logo}
           resizeMode="contain"
         />
         <Text style={styles.title}>Welcome to SONE</Text>
       </View>
 
-      <View style={styles.buttonContainer}>
+      <View style={styles.formContainer}>
+        <TextInput
+          mode="outlined"
+          label="Email"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          style={styles.input}
+        />
+        <TextInput
+          mode="outlined"
+          label="Password"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+          style={styles.input}
+        />
         <Button
           mode="contained"
           onPress={login}
@@ -40,6 +59,14 @@ export default function AuthScreen() {
           style={styles.button}
         >
           Sign In
+        </Button>
+        <Button
+          mode="outlined"
+          onPress={login}
+          disabled={isAuthenticating}
+          style={[styles.button, styles.signupButton]}
+        >
+          Sign Up
         </Button>
       </View>
     </View>
@@ -67,10 +94,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 8,
   },
-  buttonContainer: {
+  formContainer: {
+    width: '100%',
     marginTop: 24,
+  },
+  input: {
+    marginBottom: 16,
   },
   button: {
     padding: 8,
+  },
+  signupButton: {
+    marginTop: 8,
   },
 });
