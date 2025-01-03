@@ -40,11 +40,7 @@
     "react-native-gesture-handler": "~2.20.2",
     "react-native-paper": "^5.12.5",
     "react-native-reanimated": "~3.16.1",
-<<<<<<< Updated upstream
     "react-native-safe-area-context": "^4.12.0",
-=======
-    "react-native-safe-area-context": "^4.14.1",
->>>>>>> Stashed changes
     "react-native-screens": "~4.4.0",
     "react-native-svg": "^15.10.1",
     "react-native-svg-transformer": "^1.5.0",
