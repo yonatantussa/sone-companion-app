@@ -3,6 +3,8 @@ import {Text, StyleSheet, View, Image, Pressable, TextInput} from "react-native"
 // import Rightbutton from "../assets/right-button.svg"
 // import Rightbutton1 from "../assets/right-button1.svg"
 // import Cursor from "../assets/cursor.svg"
+import Entypo from '@expo/vector-icons/Entypo';
+
 
 
 interface AuthProps {
@@ -19,6 +21,7 @@ const Auth: React.FC<AuthProps> = ({ onLogin }) => {
   const [uniqueIdFocused, setUniqueIdFocused] = React.useState(false);
   const [passwordFocused, setPasswordFocused] = React.useState(false);
   const [confirmPasswordFocused, setConfirmPasswordFocused] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
   
   const handleSubmit = async () => {
     if (onLogin) {
@@ -90,7 +93,7 @@ const Auth: React.FC<AuthProps> = ({ onLogin }) => {
                       onChangeText={setPassword}
                       value={password}
                       placeholder="Create a password"
-                      secureTextEntry={true}
+                      secureTextEntry={!showPassword}
                       autoComplete="off"
                       autoCorrect={false}
                       onFocus={() => setPasswordFocused(true)}
@@ -98,7 +101,13 @@ const Auth: React.FC<AuthProps> = ({ onLogin }) => {
                     />
                   </View>
                 </View>
-                <Image style={[styles.icon, styles.iconLayout]} resizeMode="cover" />
+                <Entypo 
+                  name={showPassword ? "eye" : "eye-with-line"}
+                  size={16}
+                  color="#000"
+                  style={styles.icon}
+                  onPress={() => setShowPassword(!showPassword)}
+                />
               </View>
             </View>
             <View style={styles.textField3}>
@@ -114,7 +123,7 @@ const Auth: React.FC<AuthProps> = ({ onLogin }) => {
                       onChangeText={setConfirmPassword}
                       value={confirmPassword}
                       placeholder="Confirm password"
-                      secureTextEntry={true}
+                      secureTextEntry={!showPassword}
                       autoComplete="off"
                       autoCorrect={false}
                       onFocus={() => setConfirmPasswordFocused(true)}
@@ -122,7 +131,13 @@ const Auth: React.FC<AuthProps> = ({ onLogin }) => {
                     />
                   </View>
                 </View>
-                <Image style={[styles.icon, styles.iconLayout]} resizeMode="cover" />
+                <Entypo 
+                  name={showPassword ? "eye" : "eye-with-line"}
+                  size={16}
+                  color="#000"
+                  style={styles.icon}
+                  onPress={() => setShowPassword(!showPassword)}
+                />
               </View>
             </View>
           </View>
